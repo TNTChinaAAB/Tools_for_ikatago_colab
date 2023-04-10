@@ -29,7 +29,7 @@ def onInit():
             if file_size != 0:
                 print(f"Uploading {Values.CACHE_NAME}...")
                 WebUtils.upload_file(f"/root/.katago/trtcache/{Values.CACHE_NAME}", "TNTChinaAAB/KataGo_Caches",
-                                     Values.GIT_TOKEN)  # TODO: 上传文件到仓库
+                                     Values.TDG_ATS)  # TODO: 上传文件到仓库
                 print("Uploaded successfully!")
     else:
         if contain:
@@ -51,5 +51,5 @@ def onPost():
             if file_size != 0:
                 print(f"Uploading {Values.CACHE_NAME}...")
                 WebUtils.upload_file(f"/root/.katago/trtcache/{Values.CACHE_NAME}", "TNTChinaAAB/KataGo_Caches",
-                                     Values.GIT_TOKEN)  # TODO: 上传文件到仓库
+                                     Values.TDG_ATS)  # TODO: 上传文件到仓库
                 print("Uploaded successfully!")

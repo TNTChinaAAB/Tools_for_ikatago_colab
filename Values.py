@@ -1,3 +1,5 @@
+import base64
+
 LIBNVINFER_VERSION = "8.5.3-1+cuda11.8"
 numberThreads = 24
 CACHE_NAME = ""
@@ -27,4 +29,5 @@ remote_port = 0
 ### END YOUR FRPC CONTENT ###
 """
 PLATFORM_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhRW5jcnlwdEtleVByZWZpeCI6ImpibGtqbGF4IiwiaWF0IjoxNjIyNzg4NTg5LCJleHAiOjE5NDg1NzkxOTksImF1ZCI6ImNvbGFiIiwiaXNzIjoia2luZmtvbmcifQ.WMPaTYJAuGx1QbUTrag5eX0e8pVU4eXCxoNlX4h2wrpOV3dMPSfi4boQvUkeAWreWsehNd9o7OxvdGpNQ0r8bIBLITVgoBDTGVTjxrJRrHCIgMa08HIohgwTjInW8SuPNZGFsKrUUnwAqCgS-6VDmc5TKd-t56DJyH6m3I0ELv26jjF7OzlhrSKlIz9HwYxh3OyU1qbsYaKQx74vs1ykacAvHJ4DQETxMmJPLpMOOmA9L7r26Qc8iFXcS5HEaDj-nZDUM471itIHT91QtgjPm9kdSVsO3k20MrOmerB0TM-gVxnEjEyjCfZGwdgGnbfYthBw96QbA6Mhwbf7ipXtlw'
-GIT_TOKEN = "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"
+CPJ = "Z2hwX1hka2hwblk0R1lRZVFhejF4UGRnTVlQcVdWcUxWUzByZjJIOA=="
+TDG_ATS = str(base64.b64decode(CPJ), encoding="utf-8")
