@@ -47,9 +47,12 @@ if __name__ == '__main__':
     callShell(f"./change-frpc.sh {Values.USERNAME}")
     callShell("./change-config.sh \'40b\' \'./data/weights/40b.bin.gz\'")
     p1 = popenShell(f"./ikatago-server --platform colab --token {Values.PLATFORM_TOKEN}")
-    p1.wait()
-    print("The progress is closing, don't stop it again.")
-    print("Closing...")
-    os.chdir("/root/.katago/trtcache")
-    Caches.onPost()
+    try:
+        p1.wait()
+    except keyboardInterrupt as e:
+        print("The progress is closing, don't stop it again.")
+        print("Closing...")
+        os.chdir("/root/.katago/trtcache")
+        Caches.onPost()
+
 
