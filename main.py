@@ -49,7 +49,7 @@ if __name__ == '__main__':
     p1 = popenShell(f"./ikatago-server --platform colab --token {Values.PLATFORM_TOKEN}")
     try:
         p1.wait()
-    except keyboardInterrupt as e:
+    except KeyboardInterrupt as e:
         print("The progress is closing, don't stop it again.")
         print("Closing...")
         os.chdir("/root/.katago/trtcache")
