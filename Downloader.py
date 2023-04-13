@@ -16,15 +16,16 @@ def download_libnvinfer_deb(version: str, path: str):
 
 
 def downloadKataGo():
-    KATAGO_DRIVE_ID = "1b503WPLetCqZ7obkeAHoTmaz-ajJEmUX"
+    url_ = "https://github.com/TNTChinaAAB/lib/releases/download/1.0.0/katago"
     size1 = FileUtils.getFileSize("./data/bins/katago")
-    size2 = WebUtils.getGoogleFileSize(f"{KATAGO_DRIVE_ID}&confirm=t")
+    size2 = WebUtils.getUrlFileSize(url_)
     if size1 != size2:
-        callShell(f"gdown '{KATAGO_DRIVE_ID}&confirm=t' -O ./data/bins/katago")
+        callShell(f"wget \"{url_}\" -O ./data/bins/katago")
 
 
-def downloadWeights(fileId):
-    _status = callShell(f"gdown '{fileId}' -O /content/work/data/weights/40b.bin.gz")
+def downloadWeights(id_5):
+    url_ = WebUtils.getWeightUrl(id_5)
+    _status = callShell(f"wget \"{url_}\" -O /content/work/data/weights/40b.bin.gz")
     if _status == 0:
         print("Downloaded " + Values.WEIGHT_FILE + " successfully.")
     else:

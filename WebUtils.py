@@ -4,6 +4,14 @@ import requests
 import base64
 
 
+def getWeightSize(id_2: str) -> int:
+    return getUrlFileSize(getWeightUrl(id_2))
+
+
+def getWeightUrl(id_3: str) -> str:
+    return f"https://github.com/TNTChinaAAB/lib/releases/download/1.0.0/{id_3}.bin.gz"
+
+
 def getUrlFileSize(url: str) -> int:
     return int(urllib.request.urlopen(url).headers['Content-Length'])
 
