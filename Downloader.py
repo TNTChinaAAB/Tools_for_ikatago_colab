@@ -16,7 +16,14 @@ def download_libnvinfer_deb(version: str, path: str):
 
 
 def downloadKataGo():
-    url_ = "https://github.com/TNTChinaAAB/lib/releases/download/1.0.0/katago"
+    url_ = "https://github.com/TNTChinaAAB/lib/releases/download/1.0.0/katago_"
+
+    if Values.TYPE == "cuda":
+        url_ = url_ + "cuda"
+    if Values.TYPE == "trt":
+        url_ = url_ + "trt"
+    else:
+        print("Unknown katago engine type!Please Check whether your input is right.")
     size1 = FileUtils.getFileSize("./data/bins/katago")
     size2 = WebUtils.getUrlFileSize(url_)
     if size1 != size2:

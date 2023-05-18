@@ -11,13 +11,14 @@ from ShellUtils import *
 
 def ensureVersion():
     if Values.WEIGHT_FILE == "auto":
-        Values.WEIGHT_FILE = "18b"
+        Values.WEIGHT_FILE = "18b_optimistics"
 
+    Values.is18b_optimistics = Values.WEIGHT_FILE == "18b_optimistics"
     Values.is18b = Values.WEIGHT_FILE == "18b"
     Values.is40b = Values.WEIGHT_FILE == "40b"
     Values.is60b = Values.WEIGHT_FILE == "60b"
 
-    if Values.is18b:
+    if Values.is18b or Values.is18b_optimistics:
         Values.numberThreads = 24
     elif Values.is60b:
         Values.numberThreads = 16
@@ -40,12 +41,14 @@ def handleWeight():
     _id_ = ""
     if Values.is18b:
         _id_ = "18b"
+    elif Values.is18b_optimistics:
+        _id_ = "18b_optimistics"
     elif Values.is40b:
         _id_ = "40b"
     elif Values.is60b:
         _id_ = "60b"
     else:
-        print("Error! Weight file can only choose 40b, 60b and 18b, others are not supported.")
+        print("Error! Weight file can only choose 40b, 60b, 18b_optimistics and 18b, others are not supported.")
         sys.exit(1)
 
     if FileUtils.getFileSize("/content/work/data/weights/40b.bin.gz") != WebUtils.getWeightSize(_id_):

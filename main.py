@@ -19,6 +19,7 @@ if __name__ == '__main__':
     parse.add_argument("--username", type=str, required=True, help="the username of your ikatago-server.")
     parse.add_argument("--password", type=str, required=True, help="The password of your ikatago-server.")
     parse.add_argument("--weight", type=str, required=True, help="The type of your katago weight.")
+    parse.add_argument("--type", type=str, required=True, help="The type of your katago engine.")
     parse.add_argument("--frpc", type=str, default=Values.FRPC_DEFAULT, help="The frpc that you custom.")
     args = parse.parse_args()
     Values.USERNAME = args.username
@@ -26,6 +27,8 @@ if __name__ == '__main__':
     Values.WEIGHT_FILE = args.weight
     Values.WEIGHT_FILE = Values.WEIGHT_FILE.lower()
     Values.FRPC = args.frpc
+    Values.TYPE = args.type
+    Values.TYPE = Values.TYPE.lower()
     Handler.ensureVersion()
     callShell("mkdir -p /root/byTNTChina")
     callShell("mkdir -p /root/.katago")
