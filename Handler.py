@@ -19,7 +19,7 @@ def ensureVersion():
     Values.is60b = Values.WEIGHT_FILE == "60b"
 
     if Values.is18b or Values.is18b_optimistics:
-        Values.numberThreads = 24
+        Values.numberThreads = 12
     elif Values.is60b:
         Values.numberThreads = 16
     elif Values.is40b:
