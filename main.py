@@ -39,6 +39,7 @@ if __name__ == '__main__':
     Handler.handleWeight()
     FileUtils.chmod_file("/content/work/data/weights/40b.bin.gz")
     Handler.check_libnvinfer_so()
+    Handler.check_libssl_so()
     WeightReader.readWeightVersion()
     os.chdir("/root/.katago/trtcache/")
     Caches.onInit()

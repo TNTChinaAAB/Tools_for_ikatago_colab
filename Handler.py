@@ -93,6 +93,19 @@ def unpacking_deb(dir_: str, lib1_path: str, targetDir: str):
         callShell(f"rm -rf {dir_}/extract")
 
 
+def check_libssl_so():
+    dir_ = "/root/byTNTChina"
+    lib2_path = f"{dir_}/lib2.deb"
+    target_path = "/content/work/data/bins/libcrypto.so.1.1"
+    target_path_1 = "/content/work/data/bins/libssl.so.1.1"
+    target_dir = "/content/work/data/bins"
+    try:
+        ctypes.cdll.LoadLibrary(target_path)
+        ctypes.cdll.LoadLibrary(target_path_1)
+    except OSError as e_1:
+        Downloader.download_libssl_deb(lib2_path)
+        unpacking_deb(dir_, lib2_path, target_dir)
+
 def check_libnvinfer_so():
     dir_ = "/root/byTNTChina"
     lib1_path = f"{dir_}/lib1.deb"

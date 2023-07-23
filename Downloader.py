@@ -14,6 +14,15 @@ def download_libnvinfer_deb(version: str, path: str):
         FileUtils.chmod_file(path)
         Handler.handle_process(status, "downloaded lib1.deb", "downloading lib1.deb", 3)
 
+def download_libssl_deb(path: str):
+    repo = "http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl"
+    url_ = f"{repo}/libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb"
+    isDownloadedFailed = Handler.isProcessFailed(8)
+    isEqual = WebUtils.getUrlFileSize(url_) == FileUtils.getFileSize(path)
+    if isDownloadedFailed and (not isEqual):
+        status = callShell(f"wget {url_} -O {path}")
+        FileUtils.chmod_file(path)
+        Handler.handle_process(status, "downloaded lib2.deb", "downloading lib2.deb", 8)
 
 def downloadKataGo():
     url_ = "https://github.com/TNTChinaAAB/lib/releases/download/1.0.0/katago_"
